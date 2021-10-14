@@ -1,0 +1,43 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define N 5
+ 
+// Function to check if the matrix is
+// palindrome or not
+string isbinaryMatrixPalindrome(
+    int mat[N][N])
+{
+ 
+    // Traverse the matrix and check if
+    // top right and bottom left elements
+    // have same value
+    for (int i = 0; i < N - 1; i++) {
+        for (int j = N - 1; j > i; j--) {
+ 
+            // If top right element is not
+            // equal to the bottom left
+            // element return false
+            if (mat[i][j] != mat[j][i]) {
+                return "Np";
+            }
+        }
+    }
+ 
+    return "Yes";
+}
+ 
+// Driver Code
+int main()
+{
+    int mat[N][N] = { { 1, 0, 0, 1, 1 },
+                      { 0, 1, 0, 1, 0 },
+                      { 0, 0, 1, 1, 1 },
+                      { 1, 1, 1, 0, 1 },
+                      { 1, 0, 1, 1, 0 } };
+ 
+    cout << isbinaryMatrixPalindrome(mat);
+ 
+    return 0;
+}
